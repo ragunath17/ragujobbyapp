@@ -1,0 +1,411 @@
+.job-container {
+  background-color: #000000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .job-container {
+    flex-direction: row;
+  }
+}
+
+.job-bg-container {
+  padding-top: 20px;
+  padding-left: 40px;
+  padding-right: 20px;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .job-bg-container {
+    width: 40%;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+.search-input-container {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 5px;
+  border: 1px solid #cbd5e1;
+}
+
+@media screen and (min-width: 768px) {
+  .search-input-container {
+    display: none;
+  }
+}
+
+.desktop-view-search-input-container {
+  background-color: transparent;
+  display: none;
+  width: 350px;
+  padding-left: 5px;
+  border: 1px solid #b6c5ff;
+}
+
+@media screen and (min-width: 768px) {
+  .desktop-view-search-input-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+    border-radius: 5px;
+  }
+}
+
+.search-input {
+  background-color: #000000;
+  color: #f1f5f9;
+  height: 40px;
+  width: 90%;
+  outline: none;
+  border: 0px none;
+  padding-left: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .search-input {
+    width: 300px;
+  }
+}
+
+.search-btn {
+  background-color: #7e858e;
+  cursor: pointer;
+  outline: none;
+  border: 0px none;
+  width: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .search-btn {
+    height: 40px;
+    width: 50px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+}
+
+.search-icon {
+  color: #cbd5e1;
+  height: 20px;
+  width: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .search-icon {
+    height: 20px;
+  }
+}
+
+hr {
+  border: 1px solid #b6c5ff;
+  width: 100%;
+}
+
+.unordered-props-list-container {
+  padding-left: 0px;
+  line-height: 1.5;
+}
+
+.employment-container {
+  margin-top: 15px;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  width: 350px;
+}
+
+.props-list-items {
+  list-style-type: none;
+  line-height: 1.5;
+}
+
+.employment-heading {
+  font-family: 'Roboto';
+  font-size: 18px;
+  color: #f1f5f9;
+}
+
+.employment-label {
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: #f1f5f9;
+  padding-left: 10px;
+}
+
+.label-input {
+  height: 15px;
+  width: 15px;
+  margin-right: 10px;
+}
+
+.jobs-details-container {
+  width: 90%;
+  margin-left: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .jobs-details-container {
+    width: 90%;
+    margin-left: 10px;
+  }
+}
+
+.jobs-unordered-list-container {
+  padding-left: 0px;
+}
+
+.jobs-list-items {
+  list-style-type: none;
+  background-color: #121212;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  border: 0px none;
+  border-radius: 15px;
+  font-family: 'Roboto';
+  color: #f1f5f9;
+  padding: 20px;
+}
+
+.job-logo-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 0px none;
+}
+
+.job-logo {
+  height: 70px;
+  width: 70px;
+  margin-right: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .job-logo {
+    height: 90px;
+    width: 90px;
+    margin-right: 15px;
+  }
+}
+
+.job-title-card {
+  line-height: 1.5;
+  padding: 8px;
+}
+
+.job-link {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.job-title {
+  font-size: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .job-title {
+    font-size: 24px;
+  }
+}
+
+.rating-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.rating-icon {
+  height: 20px;
+  width: 20px;
+  color: #fbbf24;
+  margin-right: 8px;
+}
+
+.job-rating {
+  font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .job-rating {
+    font-size: 18px;
+  }
+}
+
+.jobs-more-info-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.jobs-more-info-icons {
+  height: 30px;
+  width: 30px;
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+.location-and-type-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 240px;
+}
+
+.location-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.job-location {
+  font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .job-location {
+    font-size: 18px;
+  }
+}
+
+.job-package {
+  margin-right: 10px;
+}
+
+.line {
+  width: 100%;
+}
+
+.description-heading {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+@media screen and (min-width: 768px) {
+  .description-heading {
+    font-size: 22px;
+  }
+}
+
+.job-description {
+  line-height: 1.5;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+@media screen and (min-width: 768px) {
+  .job-description {
+    font-size: 18px;
+  }
+}
+
+.no-jobs-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.no-jobs-view-img {
+  height: 300px;
+  width: 400px;
+}
+
+@media screen and (min-width: 768px) {
+  .no-jobs-view-img {
+    height: 450px;
+    width: 600px;
+  }
+}
+
+.no-jobs-title {
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  .no-jobs-title {
+    font-size: 28px;
+    font-weight: bold;
+  }
+}
+
+.no-jobs-description {
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: normal;
+  color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  .no-jobs-description {
+    font-size: 20px;
+  }
+}
+
+.jobs-failure-view-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: 20px;
+}
+
+.failure-view-img {
+  width: 80%;
+}
+
+.failure-view-heading {
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  .failure-view-heading {
+    font-size: 28px;
+    font-weight: bold;
+  }
+}
+
+.failure-view-description {
+  font-family: 'Roboto';
+  font-size: 14px;
+  color: #475569;
+}
+
+@media screen and (min-width: 768px) {
+  .failure-view-description {
+    font-size: 20px;
+  }
+}
+
+.failure-view-retry-btn {
+  font-family: 'Roboto';
+  font-size: 18px;
+  height: 40px;
+  width: 120px;
+  background-color: #6366f1;
+  color: #ffffff;
+  border: 0px none;
+  border-radius: 10px;
+  outline: none;
+}
