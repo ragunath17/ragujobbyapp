@@ -47,6 +47,8 @@ const salaryRangesList = [
   },
 ]
 
+const locationList = ['Hyderabad', 'Bangalore', 'Chennai', 'Delhi', 'Mumbai']
+
 const apiStatusConstants = {
   initial: 'INITIAL',
   success: 'SUCCESS',
@@ -61,6 +63,7 @@ class Jobs extends Component {
     jobDetails: [],
     employmentTypeInput: [],
     minimumPackageInput: '',
+    locations: [],
   }
 
   componentDidMount = () => {
@@ -68,21 +71,27 @@ class Jobs extends Component {
   }
 
   getJobsInfo = async () => {
+    console.log('getjobsinfo called')
     this.setState({apiStatus: apiStatusConstants.inProgress})
-    const {searchInput, employmentTypeInput, minimumPackageInput} = this.state
+    const {
+      searchInput,
+      employmentTypeInput,
+      minimumPackageInput,
+      locations,
+    } = this.state
 
     const jwtToken = Cookies.get('jwt_token')
 
     const employmentTypes = employmentTypeInput.join(',')
-    /*
-    axios.get(`${jobsApiUrl}?employment_type=${employmentTypes}`) employmentTypeInput.join(',',);
-    */
-    const jobsUrl = `https://apis.ccbp.in/jobs?employment_type=${employmentTypes}&minimum_package=${minimumPackageInput}&search=${searchInput}`
+    const locationTypes = locations.join(',')
+
+    const jobsUrl = `https://apis.ccbp.in/jobs?employment_type=${employmentTypes}&minimum_package=${minimumPackageInput}&location=${locationTypes}&search=${searchInput}`
     console.log(jobsUrl)
     const options = {
       headers: {Authorization: `Bearer ${jwtToken}`},
       method: 'GET',
     }
+
     const response = await fetch(jobsUrl, options)
     if (response.ok === true) {
       const fetchedData = await response.json()
@@ -137,6 +146,28 @@ class Jobs extends Component {
       return {employmentTypeInput: [...employmentTypeInput, employmentTypeId]}
     }, this.getJobsInfo)
   }
+  /*
+  handleLocationChange = location => {
+    this.setState(prevState => {
+      const {locations} = prevState
+      if (locations.includes(location)) {
+        return {
+          locations: locations.filter(loc => loc !== location),
+        }
+      }
+      return {locations: [...locations, location]}
+    }, this.getJobsInfo)
+  }
+  */
+
+  handleLocationChange = location => {
+    this.setState(prevState => {
+      const updatedLocation = prevState.locations.includes(location)
+        ? prevState.locations.filter(loc => loc !== location)
+        : [...prevState.locations, location]
+      return {locations: updatedLocation}
+    }, this.getJobsInfo)
+  }
 
   onClickRetryBtn = () => {
     this.setState({apiStatus: apiStatusConstants.inProgress})
@@ -145,6 +176,7 @@ class Jobs extends Component {
 
   renderEmployeesTypeList = () => {
     const {employmentTypeInput} = this.state
+    console.log(employmentTypeInput)
 
     return (
       <div className="employment-container">
@@ -191,6 +223,32 @@ class Jobs extends Component {
                   checked={minimumPackageInput === range.salaryRangeId}
                 />
                 {range.label}
+              </label>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  renderLocationList = () => {
+    const {locations} = this.state
+    console.log(locations)
+    return (
+      <div className="employment-container">
+        <h1 className="employment-heading">Locations</h1>
+        <ul className="unordered-props-list-container">
+          {locationList.map(eachLocation => (
+            <li className="props-list-items" key={eachLocation}>
+              <label className="employment-label">
+                <input
+                  className="label-input"
+                  type="checkbox"
+                  value={eachLocation}
+                  checked={locations.includes(eachLocation)}
+                  onChange={() => this.handleLocationChange(eachLocation)}
+                />
+                {eachLocation}
               </label>
             </li>
           ))}
@@ -337,6 +395,8 @@ class Jobs extends Component {
             <div>{this.renderEmployeesTypeList()}</div>
             <hr />
             <div>{this.renderSalaryRangeList()}</div>
+            <hr />
+            <div>{this.renderLocationList()}</div>
           </div>
           <div className="jobs-details-container">
             <div className="desktop-view-search-input-container">
